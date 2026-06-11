@@ -27,7 +27,7 @@
       "category": "specialized-logo-signs"
     },
     {
-      "filename": "P1000188.JPG",
+      "filename": "P1000184.JPG",
       "alt": "Custom wood family portrait with four people",
       "title": "Family Portraits",
       "category": "family-portraits"
@@ -39,7 +39,7 @@
       "category": "family-name-signs"
     },
     {
-      "filename": "73ae310e-dd5a-49f2-b591-e4a1942fefdc.jpg",
+      "filename": "howenstine-family-sign.jpg",
       "alt": "Custom Howenstine family name sign with acrylic lettering and wood mosaic background",
       "title": "Family Name Signs",
       "category": "family-name-signs"
@@ -55,12 +55,6 @@
       "alt": "Custom Lejao family name sign with geometric wood mosaic background",
       "title": "Family Name Signs",
       "category": "family-name-signs"
-    },
-    {
-      "filename": "P1000184.JPG",
-      "alt": "Custom family portrait made from layered wood pieces",
-      "title": "Family Portraits",
-      "category": "family-portraits"
     },
     {
       "filename": "P1000185.JPG",
@@ -109,6 +103,24 @@
       "alt": "Custom Dallas Cowboys themed Texas wood sign",
       "title": "Specialized Logo Signs",
       "category": "specialized-logo-signs"
+    },
+    {
+      "filename": "lightning-mcqueen-workshop.jpg",
+      "alt": "Lightning McQueen 3D wooden wall art in workshop",
+      "title": "Custom Signs",
+      "category": "custom-signs"
+    },
+    {
+      "filename": "buzz-lightyear-wall.jpg",
+      "alt": "Buzz Lightyear wooden wall art mounted in kids room",
+      "title": "Custom Signs",
+      "category": "custom-signs"
+    },
+    {
+      "filename": "name-letters-spears.jpg",
+      "alt": "Custom 3D name letters with spear rod mounts — Gerard and Jordan",
+      "title": "Family Name Signs",
+      "category": "family-name-signs"
     }
   ]
 }
