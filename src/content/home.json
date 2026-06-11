@@ -1,26 +1,26 @@
 {
   "hero": {
-    "headline": "Selling Woodworking Projects to Take My Family to Disney World",
-    "subheadline": "Follow the journey. Support the mission. Own a custom piece built with purpose.",
-    "ctaPrimary": "Order a Custom Project",
+    "headline": "Custom Wood Signs & Portraits Built to Tell Your Story",
+    "subheadline": "Handcrafted business signs, family name signs, nursery decor, and custom family or wedding portraits made with care, detail, and purpose.",
+    "ctaPrimary": "Start a Custom Order",
     "ctaSecondary": "View My Work",
     "heroImage": "/photos/hero/family.jpg"
   },
   "storyHighlight": {
-    "heading": "The Journey",
-    "text": "This isn't just a side hustle — it's a real-time mission to fund a family trip to Disney World through handcrafted woodworking. Every project sold brings us one step closer. Follow along, support the mission, and own a custom piece built with purpose and love."
+    "heading": "Handcrafted Pieces for Homes, Families, and Businesses",
+    "text": "Faithful Woodworker creates custom wood signs and portraits that feel personal, polished, and built to last. Whether you need a business logo sign, a family name sign, nursery decor, or a meaningful family or wedding portrait, every piece is designed around your story and finished with care."
   },
   "progressTracker": {
-    "enabled": true,
-    "label": "Journey to Disney World",
-    "percentage": 15
+    "enabled": false,
+    "label": "",
+    "percentage": 0
   },
   "ctaSection": {
     "heading": "Have an idea? Let's build it.",
     "buttonText": "Start Your Custom Order"
   },
   "portfolioPreview": {
-    "heading": "Recent Work",
-    "subheading": "A selection of custom projects built with care and craftsmanship."
+    "heading": "Featured Custom Work",
+    "subheading": "Business signs, family signs, nursery signs, portraits, and custom wood pieces made by hand."
   }
 }
