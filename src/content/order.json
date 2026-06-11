@@ -1,14 +1,16 @@
 {
-  "heading": "Order a Custom Project",
-  "subheading": "Tell me about your vision and I'll bring it to life. Fill out the form below and I'll get back to you with a quote.",
+  "heading": "Start Your Custom Order",
+  "subheading": "Tell me about your project and I'll get back to you with ideas, pricing, and a quote.",
   "successMessage": "Thank you for your order request! I'll review your details and get back to you soon.",
   "fields": {
     "projectTypes": [
-      "Custom Sign",
-      "Family Name Board",
-      "Wall Art",
-      "Kids Room Decor",
-      "Furniture Piece",
+      "Business Sign",
+      "Family Name Sign",
+      "Nursery Sign",
+      "Family Portrait",
+      "Wedding Portrait",
+      "3D Painted Sign",
+      "Wood Mosaic Sign",
       "Other"
     ],
     "styles": [
