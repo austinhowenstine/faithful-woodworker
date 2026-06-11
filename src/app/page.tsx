@@ -11,59 +11,68 @@ import InstagramSection from '@/components/ui/InstagramSection'
 export default function HomePage() {
   // Show first 6 portfolio items as preview
   const previewItems = portfolio.items.slice(0, 6)
+  const heroItems = portfolio.items.slice(0, 6)
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-walnut text-cream overflow-hidden">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0">
-          <Image
-            src={assetPath(home.hero.heroImage)}
-            alt="The Howenstine Family"
-            fill
-            className="object-cover opacity-30"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-walnut/60 via-walnut/40 to-walnut/80" />
-        </div>
-
-        <div className="relative z-10 max-w-4xl mx-auto px-6 py-32 text-center">
-          <EditableText file="config" path="siteName" as="p" className="font-display text-2xl md:text-3xl lg:text-4xl mb-4 tracking-wide text-accent-light uppercase">
-            {config.siteName}
-          </EditableText>
-          <EditableText file="home" path="hero.headline" as="h1" className="font-display text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight">
-            {home.hero.headline}
-          </EditableText>
-          <EditableText file="home" path="hero.subheadline" as="p" className="text-lg md:text-xl text-cream/80 mb-10 max-w-2xl mx-auto">
-            {home.hero.subheadline}
-          </EditableText>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/order/"
-              className="bg-accent hover:bg-accent-light text-white px-8 py-3 rounded text-lg font-medium transition-colors"
-            >
-              <EditableText file="home" path="hero.ctaPrimary">
-                {home.hero.ctaPrimary}
-              </EditableText>
-            </Link>
-            <Link
-              href="/portfolio/"
-              className="border-2 border-cream/50 hover:border-cream text-cream px-8 py-3 rounded text-lg transition-colors"
-            >
-              <EditableText file="home" path="hero.ctaSecondary">
-                {home.hero.ctaSecondary}
-              </EditableText>
-            </Link>
+      <section className="relative min-h-screen flex items-center bg-walnut text-cream overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-walnut via-walnut to-black" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-28 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-center lg:text-left">
+            <EditableText file="config" path="siteName" as="p" className="font-display text-2xl md:text-3xl lg:text-4xl mb-4 tracking-wide text-accent-light uppercase">
+              {config.siteName}
+            </EditableText>
+            <EditableText file="home" path="hero.headline" as="h1" className="font-display text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight">
+              {home.hero.headline}
+            </EditableText>
+            <EditableText file="home" path="hero.subheadline" as="p" className="text-lg md:text-xl text-cream/80 mb-10 max-w-2xl mx-auto lg:mx-0">
+              {home.hero.subheadline}
+            </EditableText>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Link
+                href="/order/"
+                className="bg-accent hover:bg-accent-light text-white px-8 py-3 rounded text-lg font-medium transition-colors"
+              >
+                <EditableText file="home" path="hero.ctaPrimary">
+                  {home.hero.ctaPrimary}
+                </EditableText>
+              </Link>
+              <Link
+                href="/portfolio/"
+                className="border-2 border-cream/50 hover:border-cream text-cream px-8 py-3 rounded text-lg transition-colors"
+              >
+                <EditableText file="home" path="hero.ctaSecondary">
+                  {home.hero.ctaSecondary}
+                </EditableText>
+              </Link>
+            </div>
           </div>
-        </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-cream/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+          <div className="grid grid-cols-2 gap-4 lg:gap-5">
+            {heroItems.map((item, i) => (
+              <Link
+                key={`${item.filename}-${i}`}
+                href="/portfolio/"
+                className={`group relative overflow-hidden rounded-xl bg-black/20 shadow-2xl ring-1 ring-cream/10 ${i === 0 ? 'aspect-[4/5]' : i === 1 ? 'aspect-square mt-8' : 'aspect-square'}`}
+              >
+                <Image
+                  src={assetPath(`/photos/portfolio/${item.filename}`)}
+                  alt={item.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  priority={i < 2}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent opacity-80" />
+                <div className="absolute bottom-3 left-3 right-3">
+                  <p className="text-sm md:text-base font-medium text-white drop-shadow">
+                    {item.title}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
