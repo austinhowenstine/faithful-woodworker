@@ -3,46 +3,112 @@
   "subheading": "Custom wood signs and portraits for businesses, families, nurseries, and meaningful spaces.",
   "items": [
     {
-      "filename": "nursery-sign-ada.jpg",
+      "filename": "P1020609.JPG",
       "alt": "Custom safari nursery sign with the name Ada",
       "title": "Nursery Signs",
       "category": "nursery-signs"
     },
     {
-      "filename": "business-sign.jpg",
+      "filename": "P1020589.JPG",
       "alt": "Custom wood business sign with raised lettering",
       "title": "Business Signs",
       "category": "business-signs"
     },
     {
-      "filename": "custom-sign-welcome.jpg",
+      "filename": "P1020669.JPG",
       "alt": "Custom welcome sign made from wood",
       "title": "Custom Signs",
       "category": "custom-signs"
     },
     {
-      "filename": "specialized-logo-marine.jpg",
+      "filename": "P1000166.JPG",
       "alt": "Custom specialized logo sign with Marine Corps emblem",
       "title": "Specialized Logo Signs",
       "category": "specialized-logo-signs"
     },
     {
-      "filename": "family-portrait.jpg",
+      "filename": "P1000188.JPG",
       "alt": "Custom wood family portrait with four people",
       "title": "Family Portraits",
       "category": "family-portraits"
     },
     {
-      "filename": "family-name-marra.jpg",
+      "filename": "P1000172.JPG",
       "alt": "Custom Marra family name sign with layered wood design",
       "title": "Family Name Signs",
       "category": "family-name-signs"
     },
     {
-      "filename": "family-name-howenstine.jpg",
-      "alt": "Custom Howenstine family name wood sign with mosaic background",
+      "filename": "P1000173.JPG",
+      "alt": "Custom Marra family name sign detail with acrylic overlay and wood mosaic background",
       "title": "Family Name Signs",
       "category": "family-name-signs"
+    },
+    {
+      "filename": "P1020630.JPG",
+      "alt": "Custom Lejao family name sign with geometric wood mosaic background",
+      "title": "Family Name Signs",
+      "category": "family-name-signs"
+    },
+    {
+      "filename": "P1000184.JPG",
+      "alt": "Custom family portrait made from layered wood pieces",
+      "title": "Family Portraits",
+      "category": "family-portraits"
+    },
+    {
+      "filename": "P1000185.JPG",
+      "alt": "Custom family portrait showing two children hugging",
+      "title": "Family Portraits",
+      "category": "family-portraits"
+    },
+    {
+      "filename": "P1000195.JPG",
+      "alt": "Custom wedding portrait made from layered wood pieces",
+      "title": "Family Portraits",
+      "category": "family-portraits"
+    },
+    {
+      "filename": "P1000179.JPG",
+      "alt": "Custom curling portrait made from layered wood pieces",
+      "title": "Family Portraits",
+      "category": "family-portraits"
+    },
+    {
+      "filename": "P1020654.JPG",
+      "alt": "Custom business sign with State of Louisiana seal and 1812 Group lettering",
+      "title": "Business Signs",
+      "category": "business-signs"
+    },
+    {
+      "filename": "P1020661.JPG",
+      "alt": "Close-up detail of custom wood business sign with raised lettering and seal",
+      "title": "Business Sign Detail",
+      "category": "business-signs"
+    },
+    {
+      "filename": "P1020672.JPG",
+      "alt": "Custom Marine Corps logo sign with raised emblem and lettering",
+      "title": "Specialized Logo Signs",
+      "category": "specialized-logo-signs"
+    },
+    {
+      "filename": "P1020676.JPG",
+      "alt": "Close-up detail of custom Marine Corps logo sign",
+      "title": "Specialized Logo Sign Detail",
+      "category": "specialized-logo-signs"
+    },
+    {
+      "filename": "P1000143.JPG",
+      "alt": "Custom Green Bay Packers themed wood sign",
+      "title": "Specialized Logo Signs",
+      "category": "specialized-logo-signs"
+    },
+    {
+      "filename": "P1000166.JPG",
+      "alt": "Custom Dallas Cowboys themed Texas wood sign",
+      "title": "Specialized Logo Signs",
+      "category": "specialized-logo-signs"
     },
     {
       "filename": "howenstine-family-sign.jpg",
@@ -57,50 +123,14 @@
       "category": "family-name-signs"
     },
     {
-      "filename": "lejao-family-closeup-1.jpg",
-      "alt": "Close-up detail of Lejao Family sign showing raised 3D lettering",
-      "title": "Family Name Sign Detail",
-      "category": "family-name-signs"
-    },
-    {
-      "filename": "lejao-family-closeup-2.jpg",
-      "alt": "Close-up of Lejao Family sign showing wood grain and lettering detail",
-      "title": "Family Name Sign Detail",
-      "category": "family-name-signs"
-    },
-    {
       "filename": "lightning-mcqueen-workshop.jpg",
       "alt": "Lightning McQueen 3D wooden wall art in workshop",
       "title": "Custom Signs",
       "category": "custom-signs"
     },
     {
-      "filename": "lightning-mcqueen-angle.jpg",
-      "alt": "Lightning McQueen wall art from an angle showing 3D depth",
-      "title": "Custom Signs",
-      "category": "custom-signs"
-    },
-    {
-      "filename": "lightning-mcqueen-detail.jpg",
-      "alt": "Close-up of Lightning McQueen showing painted detail work",
-      "title": "Custom Sign Detail",
-      "category": "custom-signs"
-    },
-    {
-      "filename": "lightning-mcqueen-text-detail.jpg",
-      "alt": "Close-up of raised Lightning McQueen text on checkered background",
-      "title": "Custom Sign Detail",
-      "category": "custom-signs"
-    },
-    {
       "filename": "buzz-lightyear-wall.jpg",
       "alt": "Buzz Lightyear wooden wall art mounted in kids room",
-      "title": "Custom Signs",
-      "category": "custom-signs"
-    },
-    {
-      "filename": "fire-station-playhouse.jpg",
-      "alt": "Custom built fire station playhouse with child playing",
       "title": "Custom Signs",
       "category": "custom-signs"
     },
