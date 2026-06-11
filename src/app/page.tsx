@@ -9,9 +9,21 @@ import ProgressTracker from '@/components/ui/ProgressTracker'
 import InstagramSection from '@/components/ui/InstagramSection'
 
 export default function HomePage() {
-  // Show first 6 portfolio items as preview
-  const previewItems = portfolio.items.slice(0, 6)
-  const heroItems = portfolio.items.slice(0, 6)
+  const homepageFilenames = [
+    'P1020609.JPG',
+    'P1020654.JPG',
+    'miracles-on-miracles.jpeg',
+    'P1020676.JPG',
+    'P1000184.JPG',
+    'P1000172.JPG',
+  ]
+
+  const homepageItems = homepageFilenames
+    .map((filename) => portfolio.items.find((item) => item.filename === filename))
+    .filter((item): item is (typeof portfolio.items)[number] => Boolean(item))
+
+  const previewItems = homepageItems
+  const heroItems = homepageItems
 
   return (
     <>
@@ -122,9 +134,9 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-4 left-4 right-4">
-                    <EditableText file="portfolio" path={`items.${i}.title`} as="p" className="text-white font-medium">
+                    <p className="text-white font-medium">
                       {item.title}
-                    </EditableText>
+                    </p>
                   </div>
                 </div>
               </Link>
