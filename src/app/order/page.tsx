@@ -35,6 +35,10 @@ export default function OrderPage() {
   const update = (field: keyof FormData, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }))
 
+  const startingPrice = form.projectType
+    ? order.fields.startingPrices?.[form.projectType as keyof typeof order.fields.startingPrices]
+    : undefined
+
   const formatPhone = (value: string) => {
     const digits = value.replace(/\D/g, '')
     if (digits.length <= 3) return digits
@@ -96,7 +100,6 @@ export default function OrderPage() {
   return (
     <div className="pt-24 pb-20">
       <div className="max-w-2xl mx-auto px-6">
-        {/* Header */}
         <div className="text-center mb-12">
           <EditableText file="order" path="heading" as="h1" className="font-display text-4xl md:text-5xl text-walnut mb-4">
             {order.heading}
@@ -107,7 +110,6 @@ export default function OrderPage() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Contact info */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-charcoal mb-1">
@@ -148,7 +150,6 @@ export default function OrderPage() {
             />
           </div>
 
-          {/* Project details */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-charcoal mb-1">
@@ -165,6 +166,11 @@ export default function OrderPage() {
                   <option key={type} value={type}>{type}</option>
                 ))}
               </select>
+              {startingPrice && (
+                <p className="mt-2 text-sm font-medium text-walnut">
+                  Starting at {startingPrice}
+                </p>
+              )}
             </div>
             <div>
               <label className="block text-sm font-medium text-charcoal mb-1">
