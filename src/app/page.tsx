@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { home, portfolio, config } from '@/content'
-import { assetPath } from '@/utils/basePath'
+import { portfolioImagePath } from '@/utils/basePath'
 import EditableText from '@/components/ui/EditableText'
 import ProgressTracker from '@/components/ui/ProgressTracker'
 import InstagramSection from '@/components/ui/InstagramSection'
@@ -27,7 +27,6 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center bg-walnut text-cream overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-walnut via-walnut to-black" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-28 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
@@ -43,7 +42,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-4 lg:gap-5">
             {heroItems.map((item, i) => (
               <Link key={`${item.filename}-${i}`} href="/portfolio/" className={`group relative overflow-hidden rounded-xl bg-black/20 shadow-2xl ring-1 ring-cream/10 ${i === 0 ? 'aspect-[4/5]' : i === 1 ? 'aspect-square mt-8' : 'aspect-square'}`}>
-                <Image src={assetPath(`/photos/portfolio/${item.filename}`)} alt={item.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 25vw" priority={i < 2} />
+                <Image src={portfolioImagePath(item.filename)} alt={item.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 25vw" priority={i < 2} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent opacity-80" />
                 <div className="absolute bottom-3 left-3 right-3"><p className="text-sm md:text-base font-medium text-white drop-shadow">{item.title}</p></div>
               </Link>
@@ -67,7 +66,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {previewItems.map((item, i) => (
               <Link key={i} href="/portfolio/" className="group relative aspect-square overflow-hidden rounded-lg bg-border">
-                <Image src={assetPath(`/photos/portfolio/${item.filename}`)} alt={item.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                <Image src={portfolioImagePath(item.filename)} alt={item.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"><div className="absolute bottom-4 left-4 right-4"><p className="text-white font-medium">{item.title}</p></div></div>
               </Link>
             ))}
