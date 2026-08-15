@@ -35,9 +35,12 @@ export default function OrderPage() {
   const update = (field: keyof FormData, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }))
 
-  const startingPrice = form.projectType
-    ? order.fields.startingPrices?.[form.projectType as keyof typeof order.fields.startingPrices]
-    : undefined
+  const projectTypeLabel = (type: string) => {
+    const price = order.fields.startingPrices?.[type]
+    if (!price) return type
+    if (type === 'Other') return `${type} — Most signs start at ${price}`
+    return `${type} — Starting at ${price}`
+  }
 
   const formatPhone = (value: string) => {
     const digits = value.replace(/\D/g, '')
@@ -138,14 +141,9 @@ export default function OrderPage() {
               <select required value={form.projectType} onChange={(e) => update('projectType', e.target.value)} className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30">
                 <option value="">Select a type...</option>
                 {order.fields.projectTypes.map((type) => (
-                  <option key={type} value={type}>{type}</option>
+                  <option key={type} value={type}>{projectTypeLabel(type)}</option>
                 ))}
               </select>
-              {startingPrice && (
-                <p className="mt-2 text-sm font-medium text-walnut">
-                  {form.projectType === 'Other' ? `Most signs start at ${startingPrice}` : `Starting at ${startingPrice}`}
-                </p>
-              )}
             </div>
             <div>
               <label className="block text-sm font-medium text-charcoal mb-1">Style Preference</label>
