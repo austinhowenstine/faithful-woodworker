@@ -2,161 +2,32 @@
   "heading": "Portfolio",
   "subheading": "Custom wood signs and portraits for businesses, families, nurseries, and meaningful spaces.",
   "items": [
-    {
-      "filename": "P1020609.JPG",
-      "alt": "Custom safari nursery sign with the name Ada",
-      "title": "Nursery Signs",
-      "category": "nursery-signs"
-    },
-    {
-      "filename": "P1000240.JPG",
-      "alt": "Custom Peter nursery sign with layered hills, sheep, sun, clouds, and Mark 1:17",
-      "title": "Nursery Signs",
-      "category": "nursery-signs"
-    },
-    {
-      "filename": "P1000245.JPG",
-      "alt": "Custom layered wood nursery sign",
-      "title": "Nursery Signs",
-      "category": "nursery-signs"
-    },
-    {
-      "filename": "P1020654.JPG",
-      "alt": "Custom business sign with State of Louisiana seal and 1812 Group lettering",
-      "title": "Business Signs",
-      "category": "business-signs"
-    },
-    {
-      "filename": "miracles-on-miracles.jpeg",
-      "alt": "Miracles on Miracles custom wood mosaic sign with raised white lettering",
-      "title": "Custom Signs",
-      "category": "custom-signs"
-    },
-    {
-      "filename": "P1020676.JPG",
-      "alt": "Close-up detail of custom Marine Corps logo sign",
-      "title": "Specialized Logo Signs",
-      "category": "specialized-logo-signs"
-    },
-    {
-      "filename": "P1000184.JPG",
-      "alt": "Custom wood family portrait with four people",
-      "title": "Family Portraits",
-      "category": "family-portraits"
-    },
-    {
-      "filename": "IMG_3527 3.jpg",
-      "alt": "Custom layered wood family portrait",
-      "title": "Family Portraits",
-      "category": "family-portraits"
-    },
-    {
-      "filename": "P1000206.JPG",
-      "alt": "Custom layered wood family portrait",
-      "title": "Family Portraits",
-      "category": "family-portraits"
-    },
-    {
-      "filename": "P1000209.JPG",
-      "alt": "Custom layered wood family portrait",
-      "title": "Family Portraits",
-      "category": "family-portraits"
-    },
-    {
-      "filename": "P1000251.JPG",
-      "alt": "Custom layered wood family portrait",
-      "title": "Family Portraits",
-      "category": "family-portraits"
-    },
-    {
-      "filename": "P1000172.JPG",
-      "alt": "Custom Marra family name sign with layered wood design",
-      "title": "Family Name Signs",
-      "category": "family-name-signs"
-    },
-    {
-      "filename": "P1000156.JPG",
-      "alt": "Simple custom nursery sign made from wood",
-      "title": "Nursery Signs",
-      "category": "nursery-signs"
-    },
-    {
-      "filename": "P1020600.JPG",
-      "alt": "Custom Marra family name sign detail with acrylic overlay and wood mosaic background",
-      "title": "Family Name Signs",
-      "category": "family-name-signs"
-    },
-    {
-      "filename": "lejao-family-sign.jpg",
-      "alt": "Custom Lejao family name sign with geometric wood mosaic background",
-      "title": "Family Name Signs",
-      "category": "family-name-signs"
-    },
-    {
-      "filename": "P1000185.JPG",
-      "alt": "Custom family portrait showing two children hugging",
-      "title": "Family Portraits",
-      "category": "family-portraits"
-    },
-    {
-      "filename": "wedding-portrait.jpeg",
-      "alt": "Custom wedding portrait made from layered wood pieces",
-      "title": "Family Portraits",
-      "category": "family-portraits"
-    },
-    {
-      "filename": "P1000190.JPG",
-      "alt": "Custom portrait made from layered wood pieces",
-      "title": "Family Portraits",
-      "category": "family-portraits"
-    },
-    {
-      "filename": "P1020589.JPG",
-      "alt": "Custom wood business sign with raised lettering",
-      "title": "Business Signs",
-      "category": "business-signs"
-    },
-    {
-      "filename": "P1020661.JPG",
-      "alt": "Close-up detail of custom wood business sign with raised lettering and seal",
-      "title": "Business Sign Detail",
-      "category": "business-signs"
-    },
-    {
-      "filename": "P1020672.JPG",
-      "alt": "Custom Marine Corps logo sign with raised emblem and lettering",
-      "title": "Specialized Logo Signs",
-      "category": "specialized-logo-signs"
-    },
-    {
-      "filename": "P1000143.JPG",
-      "alt": "Custom Green Bay Packers themed wood sign",
-      "title": "Specialized Logo Signs",
-      "category": "specialized-logo-signs"
-    },
-    {
-      "filename": "P1000166.JPG",
-      "alt": "Custom Dallas Cowboys themed Texas wood sign",
-      "title": "Specialized Logo Signs",
-      "category": "specialized-logo-signs"
-    },
-    {
-      "filename": "P1020634.JPG",
-      "alt": "Lightning McQueen custom wooden wall art",
-      "title": "Custom Signs",
-      "category": "custom-signs"
-    },
-    {
-      "filename": "buzz-lightyear-wall.jpg",
-      "alt": "Buzz Lightyear wooden wall art mounted in kids room",
-      "title": "Custom Signs",
-      "category": "custom-signs"
-    },
-    {
-      "filename": "name-letters-spears.jpg",
-      "alt": "Custom 3D name letters with spear rod mounts — Gerard and Jordan",
-      "title": "Family Name Signs",
-      "category": "family-name-signs"
-    }
+    {"filename":"P1020609.JPG","alt":"Custom safari nursery sign with the name Ada","title":"Nursery Signs","category":"nursery-signs"},
+    {"filename":"P1000240.JPG","alt":"Custom Peter nursery sign with layered hills, sheep, sun, clouds, and Mark 1:17","title":"Nursery Signs","category":"nursery-signs"},
+    {"filename":"P1000245.JPG","alt":"Custom layered wood nursery sign","title":"Nursery Signs","category":"nursery-signs"},
+    {"filename":"P1020654.JPG","alt":"Custom business sign with State of Louisiana seal and 1812 Group lettering","title":"Business Signs","category":"business-signs"},
+    {"filename":"miracles-on-miracles.jpeg","alt":"Miracles on Miracles custom wood mosaic sign with raised white lettering","title":"Custom Signs","category":"custom-signs"},
+    {"filename":"P1020676.JPG","alt":"Close-up detail of custom Marine Corps logo sign","title":"Specialized Logo Signs","category":"specialized-logo-signs"},
+    {"filename":"IMG_3811.jpg","alt":"Custom specialized logo wood sign","title":"Specialized Logo Signs","category":"specialized-logo-signs"},
+    {"filename":"P1000184.JPG","alt":"Custom wood family portrait with four people","title":"Family Portraits","category":"family-portraits"},
+    {"filename":"IMG_3527 3.jpg","alt":"Custom layered wood family portrait","title":"Family Portraits","category":"family-portraits"},
+    {"filename":"P1000206.JPG","alt":"Custom layered wood family portrait","title":"Family Portraits","category":"family-portraits"},
+    {"filename":"P1000209.JPG","alt":"Custom layered wood family portrait","title":"Family Portraits","category":"family-portraits"},
+    {"filename":"P1000251.JPG","alt":"Custom layered wood family portrait","title":"Family Portraits","category":"family-portraits"},
+    {"filename":"P1000172.JPG","alt":"Custom Marra family name sign with layered wood design","title":"Family Name Signs","category":"family-name-signs"},
+    {"filename":"P1000156.JPG","alt":"Simple custom nursery sign made from wood","title":"Nursery Signs","category":"nursery-signs"},
+    {"filename":"P1020600.JPG","alt":"Custom Marra family name sign detail with acrylic overlay and wood mosaic background","title":"Family Name Signs","category":"family-name-signs"},
+    {"filename":"lejao-family-sign.jpg","alt":"Custom Lejao family name sign with geometric wood mosaic background","title":"Family Name Signs","category":"family-name-signs"},
+    {"filename":"P1000185.JPG","alt":"Custom family portrait showing two children hugging","title":"Family Portraits","category":"family-portraits"},
+    {"filename":"wedding-portrait.jpeg","alt":"Custom wedding portrait made from layered wood pieces","title":"Family Portraits","category":"family-portraits"},
+    {"filename":"P1000190.JPG","alt":"Custom portrait made from layered wood pieces","title":"Family Portraits","category":"family-portraits"},
+    {"filename":"P1020589.JPG","alt":"Custom wood business sign with raised lettering","title":"Business Signs","category":"business-signs"},
+    {"filename":"P1020661.JPG","alt":"Close-up detail of custom wood business sign with raised lettering and seal","title":"Business Sign Detail","category":"business-signs"},
+    {"filename":"P1020672.JPG","alt":"Custom Marine Corps logo sign with raised emblem and lettering","title":"Specialized Logo Signs","category":"specialized-logo-signs"},
+    {"filename":"P1000143.JPG","alt":"Custom Green Bay Packers themed wood sign","title":"Specialized Logo Signs","category":"specialized-logo-signs"},
+    {"filename":"P1000166.JPG","alt":"Custom Dallas Cowboys themed Texas wood sign","title":"Specialized Logo Signs","category":"specialized-logo-signs"},
+    {"filename":"P1020634.JPG","alt":"Lightning McQueen custom wooden wall art","title":"Custom Signs","category":"custom-signs"},
+    {"filename":"buzz-lightyear-wall.jpg","alt":"Buzz Lightyear wooden wall art mounted in kids room","title":"Custom Signs","category":"custom-signs"},
+    {"filename":"name-letters-spears.jpg","alt":"Custom 3D name letters with spear rod mounts — Gerard and Jordan","title":"Family Name Signs","category":"family-name-signs"}
   ]
 }
