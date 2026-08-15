@@ -12,7 +12,7 @@ export default function HomePage() {
   const homepageFilenames = [
     'P1020609.JPG',
     'P1020654.JPG',
-    'miracles-on-miracles.jpeg',
+    '278be70b-84b1-4307-a134-b0346450db53.jpg',
     'IMG_3811.jpg',
     'P1000184.JPG',
     'P1000172.JPG',
@@ -32,25 +32,14 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-walnut via-walnut to-black" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-28 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
-            <EditableText file="config" path="siteName" as="p" className="font-display text-2xl md:text-3xl lg:text-4xl mb-4 tracking-wide text-accent-light uppercase">
-              {config.siteName}
-            </EditableText>
-            <EditableText file="home" path="hero.headline" as="h1" className="font-display text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight">
-              {home.hero.headline}
-            </EditableText>
-            <EditableText file="home" path="hero.subheadline" as="p" className="text-lg md:text-xl text-cream/80 mb-10 max-w-2xl mx-auto lg:mx-0">
-              {home.hero.subheadline}
-            </EditableText>
+            <EditableText file="config" path="siteName" as="p" className="font-display text-2xl md:text-3xl lg:text-4xl mb-4 tracking-wide text-accent-light uppercase">{config.siteName}</EditableText>
+            <EditableText file="home" path="hero.headline" as="h1" className="font-display text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight">{home.hero.headline}</EditableText>
+            <EditableText file="home" path="hero.subheadline" as="p" className="text-lg md:text-xl text-cream/80 mb-10 max-w-2xl mx-auto lg:mx-0">{home.hero.subheadline}</EditableText>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link href="/order/" className="bg-accent hover:bg-accent-light text-white px-8 py-3 rounded text-lg font-medium transition-colors">
-                <EditableText file="home" path="hero.ctaPrimary">{home.hero.ctaPrimary}</EditableText>
-              </Link>
-              <Link href="/portfolio/" className="border-2 border-cream/50 hover:border-cream text-cream px-8 py-3 rounded text-lg transition-colors">
-                <EditableText file="home" path="hero.ctaSecondary">{home.hero.ctaSecondary}</EditableText>
-              </Link>
+              <Link href="/order/" className="bg-accent hover:bg-accent-light text-white px-8 py-3 rounded text-lg font-medium transition-colors"><EditableText file="home" path="hero.ctaPrimary">{home.hero.ctaPrimary}</EditableText></Link>
+              <Link href="/portfolio/" className="border-2 border-cream/50 hover:border-cream text-cream px-8 py-3 rounded text-lg transition-colors"><EditableText file="home" path="hero.ctaSecondary">{home.hero.ctaSecondary}</EditableText></Link>
             </div>
           </div>
-
           <div className="grid grid-cols-2 gap-4 lg:gap-5">
             {heroItems.map((item, i) => (
               <Link key={`${item.filename}-${i}`} href="/portfolio/" className={`group relative overflow-hidden rounded-xl bg-black/20 shadow-2xl ring-1 ring-cream/10 ${i === 0 ? 'aspect-[4/5]' : i === 1 ? 'aspect-square mt-8' : 'aspect-square'}`}>
@@ -62,8 +51,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Story Highlight + Progress Tracker */}
       <section className="py-20 bg-cream">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <EditableText file="home" path="storyHighlight.heading" as="h2" className="font-display text-3xl md:text-4xl text-walnut mb-6">{home.storyHighlight.heading}</EditableText>
@@ -71,8 +58,6 @@ export default function HomePage() {
           {home.progressTracker.enabled && <ProgressTracker label={home.progressTracker.label} percentage={home.progressTracker.percentage} />}
         </div>
       </section>
-
-      {/* Portfolio Preview */}
       <section className="py-20 bg-warm-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -90,10 +75,7 @@ export default function HomePage() {
           <div className="text-center mt-10"><Link href="/portfolio/" className="text-walnut hover:text-oak font-medium border-b-2 border-walnut/30 hover:border-walnut transition-colors pb-1">View All Projects &rarr;</Link></div>
         </div>
       </section>
-
       <InstagramSection />
-
-      {/* CTA Section */}
       <section className="py-20 bg-walnut text-cream">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <EditableText file="home" path="ctaSection.heading" as="h2" className="font-display text-3xl md:text-5xl mb-8">{home.ctaSection.heading}</EditableText>
