@@ -19,7 +19,8 @@
       "Nursery Sign": "$250",
       "Family Portrait": "$250",
       "Wedding Portrait": "$250",
-      "3D Painted Sign": "$200"
+      "3D Painted Sign": "$200",
+      "Other": "$200"
     },
     "styles": [
       "Modern",
