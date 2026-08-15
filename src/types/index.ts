@@ -84,6 +84,7 @@ export interface OrderContent {
   successMessage: string
   fields: {
     projectTypes: string[]
+    startingPrices: Record<string, string>
     styles: string[]
     budgetRanges: string[]
   }
