@@ -13,6 +13,14 @@
       "Wood Mosaic Sign",
       "Other"
     ],
+    "startingPrices": {
+      "Business Sign": "$400",
+      "Family Name Sign": "$400",
+      "Nursery Sign": "$250",
+      "Family Portrait": "$250",
+      "Wedding Portrait": "$250",
+      "3D Painted Sign": "$200"
+    },
     "styles": [
       "Modern",
       "Rustic",
