@@ -115,39 +115,19 @@ export default function OrderPage() {
               <label className="block text-sm font-medium text-charcoal mb-1">
                 Name <span className="text-red-500">*</span>
               </label>
-              <input
-                type="text"
-                required
-                value={form.name}
-                onChange={(e) => update('name', e.target.value)}
-                className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30"
-              />
+              <input type="text" required value={form.name} onChange={(e) => update('name', e.target.value)} className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30" />
             </div>
             <div>
               <label className="block text-sm font-medium text-charcoal mb-1">
                 Email <span className="text-red-500">*</span>
               </label>
-              <input
-                type="email"
-                required
-                value={form.email}
-                onChange={(e) => update('email', e.target.value)}
-                className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30"
-              />
+              <input type="email" required value={form.email} onChange={(e) => update('email', e.target.value)} className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30" />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-charcoal mb-1">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              value={form.phone}
-              onChange={(e) => update('phone', formatPhone(e.target.value))}
-              placeholder="(555) 123-4567"
-              className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30"
-            />
+            <label className="block text-sm font-medium text-charcoal mb-1">Phone Number</label>
+            <input type="tel" value={form.phone} onChange={(e) => update('phone', formatPhone(e.target.value))} placeholder="(555) 123-4567" className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -155,12 +135,7 @@ export default function OrderPage() {
               <label className="block text-sm font-medium text-charcoal mb-1">
                 Type of Project <span className="text-red-500">*</span>
               </label>
-              <select
-                required
-                value={form.projectType}
-                onChange={(e) => update('projectType', e.target.value)}
-                className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30"
-              >
+              <select required value={form.projectType} onChange={(e) => update('projectType', e.target.value)} className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30">
                 <option value="">Select a type...</option>
                 {order.fields.projectTypes.map((type) => (
                   <option key={type} value={type}>{type}</option>
@@ -168,19 +143,13 @@ export default function OrderPage() {
               </select>
               {startingPrice && (
                 <p className="mt-2 text-sm font-medium text-walnut">
-                  Starting at {startingPrice}
+                  {form.projectType === 'Other' ? `Most signs start at ${startingPrice}` : `Starting at ${startingPrice}`}
                 </p>
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1">
-                Style Preference
-              </label>
-              <select
-                value={form.style}
-                onChange={(e) => update('style', e.target.value)}
-                className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30"
-              >
+              <label className="block text-sm font-medium text-charcoal mb-1">Style Preference</label>
+              <select value={form.style} onChange={(e) => update('style', e.target.value)} className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30">
                 <option value="">Select a style...</option>
                 {order.fields.styles.map((style) => (
                   <option key={style} value={style}>{style}</option>
@@ -191,26 +160,12 @@ export default function OrderPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1">
-                Dimensions / Size
-              </label>
-              <input
-                type="text"
-                value={form.dimensions}
-                onChange={(e) => update('dimensions', e.target.value)}
-                placeholder='e.g., 24" x 36"'
-                className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30"
-              />
+              <label className="block text-sm font-medium text-charcoal mb-1">Dimensions / Size</label>
+              <input type="text" value={form.dimensions} onChange={(e) => update('dimensions', e.target.value)} placeholder='e.g., 24" x 36"' className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-charcoal mb-1">
-                Budget Range
-              </label>
-              <select
-                value={form.budget}
-                onChange={(e) => update('budget', e.target.value)}
-                className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30"
-              >
+              <label className="block text-sm font-medium text-charcoal mb-1">Budget Range</label>
+              <select value={form.budget} onChange={(e) => update('budget', e.target.value)} className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30">
                 <option value="">Select a range...</option>
                 {order.fields.budgetRanges.map((range) => (
                   <option key={range} value={range}>{range}</option>
@@ -220,51 +175,29 @@ export default function OrderPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-charcoal mb-1">
-              Color / Wood Preference
-            </label>
-            <input
-              type="text"
-              value={form.colorPreference}
-              onChange={(e) => update('colorPreference', e.target.value)}
-              placeholder="e.g., Dark walnut with white lettering"
-              className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30"
-            />
+            <label className="block text-sm font-medium text-charcoal mb-1">Color / Wood Preference</label>
+            <input type="text" value={form.colorPreference} onChange={(e) => update('colorPreference', e.target.value)} placeholder="e.g., Dark walnut with white lettering" className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30" />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-charcoal mb-1">
               Describe Your Vision <span className="text-red-500">*</span>
             </label>
-            <textarea
-              required
-              rows={5}
-              value={form.description}
-              onChange={(e) => update('description', e.target.value)}
-              placeholder="Tell me about your idea — what it's for, any specific details, reference images you have in mind..."
-              className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30 resize-y"
-            />
+            <textarea required rows={5} value={form.description} onChange={(e) => update('description', e.target.value)} placeholder="Tell me about your idea — what it's for, any specific details, reference images you have in mind..." className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30 resize-y" />
           </div>
 
           <EditableText file="order" path="turnaroundNote" as="p" className="text-sm text-muted italic">
             {order.turnaroundNote}
           </EditableText>
 
-          <button
-            type="submit"
-            disabled={status === 'submitting'}
-            className="w-full bg-walnut hover:bg-oak text-cream py-4 rounded text-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
+          <button type="submit" disabled={status === 'submitting'} className="w-full bg-walnut hover:bg-oak text-cream py-4 rounded text-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
             {status === 'submitting' ? 'Submitting...' : 'Request My Custom Piece'}
           </button>
 
           {status === 'error' && (
             <p className="text-red-600 text-center">
               Something went wrong. Please try again or email{' '}
-              <a href={`mailto:${config.ownerEmail}`} className="underline">
-                {config.ownerEmail}
-              </a>
-              .
+              <a href={`mailto:${config.ownerEmail}`} className="underline">{config.ownerEmail}</a>.
             </p>
           )}
         </form>
