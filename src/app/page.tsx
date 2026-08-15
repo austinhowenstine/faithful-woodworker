@@ -13,7 +13,7 @@ export default function HomePage() {
     'P1020609.JPG',
     'P1020654.JPG',
     'miracles-on-miracles.jpeg',
-    'P1020676.JPG',
+    'IMG_3811.jpg',
     'P1000184.JPG',
     'P1000172.JPG',
   ]
@@ -42,46 +42,21 @@ export default function HomePage() {
               {home.hero.subheadline}
             </EditableText>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link
-                href="/order/"
-                className="bg-accent hover:bg-accent-light text-white px-8 py-3 rounded text-lg font-medium transition-colors"
-              >
-                <EditableText file="home" path="hero.ctaPrimary">
-                  {home.hero.ctaPrimary}
-                </EditableText>
+              <Link href="/order/" className="bg-accent hover:bg-accent-light text-white px-8 py-3 rounded text-lg font-medium transition-colors">
+                <EditableText file="home" path="hero.ctaPrimary">{home.hero.ctaPrimary}</EditableText>
               </Link>
-              <Link
-                href="/portfolio/"
-                className="border-2 border-cream/50 hover:border-cream text-cream px-8 py-3 rounded text-lg transition-colors"
-              >
-                <EditableText file="home" path="hero.ctaSecondary">
-                  {home.hero.ctaSecondary}
-                </EditableText>
+              <Link href="/portfolio/" className="border-2 border-cream/50 hover:border-cream text-cream px-8 py-3 rounded text-lg transition-colors">
+                <EditableText file="home" path="hero.ctaSecondary">{home.hero.ctaSecondary}</EditableText>
               </Link>
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4 lg:gap-5">
             {heroItems.map((item, i) => (
-              <Link
-                key={`${item.filename}-${i}`}
-                href="/portfolio/"
-                className={`group relative overflow-hidden rounded-xl bg-black/20 shadow-2xl ring-1 ring-cream/10 ${i === 0 ? 'aspect-[4/5]' : i === 1 ? 'aspect-square mt-8' : 'aspect-square'}`}
-              >
-                <Image
-                  src={assetPath(`/photos/portfolio/${item.filename}`)}
-                  alt={item.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  priority={i < 2}
-                />
+              <Link key={`${item.filename}-${i}`} href="/portfolio/" className={`group relative overflow-hidden rounded-xl bg-black/20 shadow-2xl ring-1 ring-cream/10 ${i === 0 ? 'aspect-[4/5]' : i === 1 ? 'aspect-square mt-8' : 'aspect-square'}`}>
+                <Image src={assetPath(`/photos/portfolio/${item.filename}`)} alt={item.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 25vw" priority={i < 2} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent opacity-80" />
-                <div className="absolute bottom-3 left-3 right-3">
-                  <p className="text-sm md:text-base font-medium text-white drop-shadow">
-                    {item.title}
-                  </p>
-                </div>
+                <div className="absolute bottom-3 left-3 right-3"><p className="text-sm md:text-base font-medium text-white drop-shadow">{item.title}</p></div>
               </Link>
             ))}
           </div>
@@ -91,18 +66,9 @@ export default function HomePage() {
       {/* Story Highlight + Progress Tracker */}
       <section className="py-20 bg-cream">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <EditableText file="home" path="storyHighlight.heading" as="h2" className="font-display text-3xl md:text-4xl text-walnut mb-6">
-            {home.storyHighlight.heading}
-          </EditableText>
-          <EditableText file="home" path="storyHighlight.text" as="p" className="text-muted text-lg leading-relaxed mb-8" multiline>
-            {home.storyHighlight.text}
-          </EditableText>
-          {home.progressTracker.enabled && (
-            <ProgressTracker
-              label={home.progressTracker.label}
-              percentage={home.progressTracker.percentage}
-            />
-          )}
+          <EditableText file="home" path="storyHighlight.heading" as="h2" className="font-display text-3xl md:text-4xl text-walnut mb-6">{home.storyHighlight.heading}</EditableText>
+          <EditableText file="home" path="storyHighlight.text" as="p" className="text-muted text-lg leading-relaxed mb-8" multiline>{home.storyHighlight.text}</EditableText>
+          {home.progressTracker.enabled && <ProgressTracker label={home.progressTracker.label} percentage={home.progressTracker.percentage} />}
         </div>
       </section>
 
@@ -110,67 +76,28 @@ export default function HomePage() {
       <section className="py-20 bg-warm-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <EditableText file="home" path="portfolioPreview.heading" as="h2" className="font-display text-3xl md:text-4xl text-walnut mb-3">
-              {home.portfolioPreview.heading}
-            </EditableText>
-            <EditableText file="home" path="portfolioPreview.subheading" as="p" className="text-muted text-lg">
-              {home.portfolioPreview.subheading}
-            </EditableText>
+            <EditableText file="home" path="portfolioPreview.heading" as="h2" className="font-display text-3xl md:text-4xl text-walnut mb-3">{home.portfolioPreview.heading}</EditableText>
+            <EditableText file="home" path="portfolioPreview.subheading" as="p" className="text-muted text-lg">{home.portfolioPreview.subheading}</EditableText>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {previewItems.map((item, i) => (
-              <Link
-                key={i}
-                href="/portfolio/"
-                className="group relative aspect-square overflow-hidden rounded-lg bg-border"
-              >
-                <Image
-                  src={assetPath(`/photos/portfolio/${item.filename}`)}
-                  alt={item.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <p className="text-white font-medium">
-                      {item.title}
-                    </p>
-                  </div>
-                </div>
+              <Link key={i} href="/portfolio/" className="group relative aspect-square overflow-hidden rounded-lg bg-border">
+                <Image src={assetPath(`/photos/portfolio/${item.filename}`)} alt={item.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"><div className="absolute bottom-4 left-4 right-4"><p className="text-white font-medium">{item.title}</p></div></div>
               </Link>
             ))}
           </div>
-
-          <div className="text-center mt-10">
-            <Link
-              href="/portfolio/"
-              className="text-walnut hover:text-oak font-medium border-b-2 border-walnut/30 hover:border-walnut transition-colors pb-1"
-            >
-              View All Projects &rarr;
-            </Link>
-          </div>
+          <div className="text-center mt-10"><Link href="/portfolio/" className="text-walnut hover:text-oak font-medium border-b-2 border-walnut/30 hover:border-walnut transition-colors pb-1">View All Projects &rarr;</Link></div>
         </div>
       </section>
 
-      {/* Instagram Section */}
       <InstagramSection />
 
       {/* CTA Section */}
       <section className="py-20 bg-walnut text-cream">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <EditableText file="home" path="ctaSection.heading" as="h2" className="font-display text-3xl md:text-5xl mb-8">
-            {home.ctaSection.heading}
-          </EditableText>
-          <Link
-            href="/order/"
-            className="inline-block bg-accent hover:bg-accent-light text-white px-10 py-4 rounded text-lg font-medium transition-colors"
-          >
-            <EditableText file="home" path="ctaSection.buttonText">
-              {home.ctaSection.buttonText}
-            </EditableText>
-          </Link>
+          <EditableText file="home" path="ctaSection.heading" as="h2" className="font-display text-3xl md:text-5xl mb-8">{home.ctaSection.heading}</EditableText>
+          <Link href="/order/" className="inline-block bg-accent hover:bg-accent-light text-white px-10 py-4 rounded text-lg font-medium transition-colors"><EditableText file="home" path="ctaSection.buttonText">{home.ctaSection.buttonText}</EditableText></Link>
         </div>
       </section>
     </>
