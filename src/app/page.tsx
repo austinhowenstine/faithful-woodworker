@@ -23,7 +23,7 @@ export default function HomePage() {
     .filter((item): item is (typeof portfolio.items)[number] => Boolean(item))
 
   const previewItems = homepageItems
-  const heroItems = homepageItems
+  const heroItems = homepageItems.slice(0, 2)
 
   return (
     <>
@@ -41,6 +41,10 @@ export default function HomePage() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 lg:gap-5">
+            <Link href="/order/?project=court" className="col-span-2 block overflow-hidden rounded-xl shadow-2xl ring-1 ring-cream/10">
+              <img src={assetPath('/photos/kentucky-court.jpg')} alt="Custom Kentucky basketball court" className="block w-full h-auto" fetchPriority="high" />
+              <p className="bg-black/30 px-4 py-3 text-center font-medium text-cream">Custom Basketball Courts</p>
+            </Link>
             {heroItems.map((item, i) => (
               <Link key={`${item.filename}-${i}`} href="/portfolio/" className={`group relative overflow-hidden rounded-xl bg-black/20 shadow-2xl ring-1 ring-cream/10 ${i === 0 ? 'aspect-[4/5]' : i === 1 ? 'aspect-square mt-8' : 'aspect-square'}`}>
                 <Image src={portfolioImagePath(item.filename)} alt={item.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 25vw" priority={i < 2} />
@@ -53,8 +57,8 @@ export default function HomePage() {
       </section>
       <section id="basketball-courts" className="py-16 md:py-24 bg-warm-white">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <Link href="/order/?project=court" className="relative block aspect-[4/3] overflow-hidden rounded-xl shadow-xl bg-border">
-            <Image src={assetPath('/photos/IMG_7131%204.jpeg.jpg')} alt="Handcrafted Kentucky basketball court replica" fill className="object-contain" sizes="(max-width: 1024px) 100vw, 50vw" />
+          <Link href="/order/?project=court" className="relative block overflow-hidden rounded-xl shadow-xl bg-border">
+            <img src={assetPath('/photos/kentucky-court.jpg')} alt="Handcrafted Kentucky basketball court replica" className="block w-full h-auto" />
           </Link>
           <div className="text-center lg:text-left">
             <p className="uppercase tracking-widest text-sm font-medium text-muted mb-3">Featured custom work</p>
