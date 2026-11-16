@@ -8,6 +8,7 @@ interface FormData {
   name: string
   email: string
   phone: string
+  contactPreference: string
   projectType: string
   dimensions: string
   style: string
@@ -20,6 +21,7 @@ const initialForm: FormData = {
   name: '',
   email: '',
   phone: '',
+  contactPreference: '',
   projectType: 'Custom Basketball Court',
   dimensions: '',
   style: '',
@@ -58,7 +60,7 @@ export default function BasketballCourtPage() {
     try {
       const submission = {
         ...form,
-        ...{ dimensions: courtSize, budget: `Starting at ${courtPrices[courtSize]}`, style: courtUse, colorPreference: '', description: `Team / court: ${courtTeam}\nIntended use: ${courtUse}\n${form.description}` },
+        ...{ dimensions: courtSize, budget: `Starting at ${courtPrices[courtSize]}`, style: courtUse, colorPreference: '', description: `Preferred contact: ${form.contactPreference}\nTeam / court: ${courtTeam}\nIntended use: ${courtUse}\n${form.description}` },
         timestamp: new Date().toISOString(),
         action: 'submitOrder',
       }
@@ -128,9 +130,22 @@ export default function BasketballCourtPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-charcoal mb-1">Phone Number</label>
-            <input type="tel" value={form.phone} onChange={(e) => update('phone', formatPhone(e.target.value))} placeholder="(555) 123-4567" className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30" />
+            <label className="block text-sm font-medium text-charcoal mb-1">Phone Number {form.contactPreference === 'Text' && <span className="text-red-500">*</span>}</label>
+            <input type="tel" required={form.contactPreference === 'Text'} minLength={form.contactPreference === 'Text' ? 14 : undefined} value={form.phone} onChange={(e) => update('phone', formatPhone(e.target.value))} placeholder="(555) 123-4567" className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30" />
           </div>
+
+          <fieldset className="space-y-2">
+            <legend className="block text-sm font-medium text-charcoal mb-1">How would you prefer to be contacted? <span className="text-red-500">*</span></legend>
+            <div className="flex flex-wrap gap-6">
+              {['Text', 'Email'].map((method) => (
+                <label key={method} className="flex items-center gap-2 text-charcoal">
+                  <input type="radio" name="contactPreference" required value={method} checked={form.contactPreference === method} onChange={() => update('contactPreference', method)} />
+                  {method === 'Text' ? 'Text message' : 'Email'}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
 
             <section className="space-y-5 border border-border rounded p-5">
               <div>
