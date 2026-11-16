@@ -176,7 +176,7 @@ export default function OrderPage() {
           {isCourt ? (
             <section className="space-y-5 border border-border rounded p-5">
               <h2 className="font-display text-2xl text-walnut">Custom Basketball Courts</h2>
-              <img src={assetPath('/photos/IMG_7131%204.jpeg.jpg')} alt="Handcrafted Kentucky basketball court replica" className="w-full h-auto rounded" />
+              <img src={assetPath('/photos/kentucky-court.jpg')} alt="Handcrafted Kentucky basketball court replica" className="w-full h-auto rounded" />
               <div>
                 <label htmlFor="court-team" className="block text-sm font-medium text-charcoal mb-1">Team / Court Design *</label>
                 <input id="court-team" required value={courtTeam} onChange={(e) => setCourtTeam(e.target.value)} placeholder="e.g., Kentucky – Rupp Arena" className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30" />
