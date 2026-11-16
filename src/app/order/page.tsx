@@ -8,6 +8,7 @@ interface FormData {
   name: string
   email: string
   phone: string
+  contactPreference: string
   projectType: string
   dimensions: string
   style: string
@@ -20,6 +21,7 @@ const initialForm: FormData = {
   name: '',
   email: '',
   phone: '',
+  contactPreference: '',
   projectType: '',
   dimensions: '',
   style: '',
@@ -60,6 +62,7 @@ export default function OrderPage() {
     try {
       const submission = {
         ...form,
+        description: `Preferred contact: ${form.contactPreference}\n${form.description}`,
         timestamp: new Date().toISOString(),
         action: 'submitOrder',
       }
@@ -129,9 +132,22 @@ export default function OrderPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-charcoal mb-1">Phone Number</label>
-            <input type="tel" value={form.phone} onChange={(e) => update('phone', formatPhone(e.target.value))} placeholder="(555) 123-4567" className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30" />
+            <label className="block text-sm font-medium text-charcoal mb-1">Phone Number {form.contactPreference === 'Text' && <span className="text-red-500">*</span>}</label>
+            <input type="tel" required={form.contactPreference === 'Text'} minLength={form.contactPreference === 'Text' ? 14 : undefined} value={form.phone} onChange={(e) => update('phone', formatPhone(e.target.value))} placeholder="(555) 123-4567" className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30" />
           </div>
+
+          <fieldset className="space-y-2">
+            <legend className="block text-sm font-medium text-charcoal mb-1">How would you prefer to be contacted? <span className="text-red-500">*</span></legend>
+            <div className="flex flex-wrap gap-6">
+              {['Text', 'Email'].map((method) => (
+                <label key={method} className="flex items-center gap-2 text-charcoal">
+                  <input type="radio" name="contactPreference" required value={method} checked={form.contactPreference === method} onChange={() => update('contactPreference', method)} />
+                  {method === 'Text' ? 'Text message' : 'Email'}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
