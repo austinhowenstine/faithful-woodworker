@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import { useState, useEffect, FormEvent } from 'react'
 import { order, config } from '@/content'
+import ReferencePhotos, { type ReferencePhoto } from '@/components/ui/ReferencePhotos'
 import { assetPath } from '@/utils/basePath'
 
 interface FormData {
@@ -31,6 +32,14 @@ const initialForm: FormData = {
 }
 
 export default function BasketballCourtPage() {
+  const [photos, setPhotos] = useState<ReferencePhoto[]>([])
+  const [uploadsEnabled, setUploadsEnabled] = useState(false)
+  useEffect(() => {
+    if (!config.appsScriptUrl) return
+    const url = new URL(config.appsScriptUrl)
+    url.searchParams.set('action', 'uploadCapability')
+    fetch(url.toString()).then(r => r.json()).then(data => setUploadsEnabled(data.photoUploads === true)).catch(() => {})
+  }, [])
   const [form, setForm] = useState<FormData>(initialForm)
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
@@ -61,6 +70,7 @@ export default function BasketballCourtPage() {
       const submission = {
         ...form,
         ...{ dimensions: courtSize, budget: `Starting at ${courtPrices[courtSize]}`, style: courtUse, colorPreference: '', description: `Preferred contact: ${form.contactPreference}\nTeam / court: ${courtTeam}\nIntended use: ${courtUse}\n${form.description}` },
+        ...(uploadsEnabled && photos.length ? { photos } : {}),
         timestamp: new Date().toISOString(),
         action: 'submitOrder',
       }
@@ -75,6 +85,7 @@ export default function BasketballCourtPage() {
       if (data.success) {
         setStatus('success')
         setForm(initialForm)
+        setPhotos([])
         setCourtTeam('')
         setCourtSize('')
         setCourtUse('Wall art')
@@ -177,6 +188,8 @@ export default function BasketballCourtPage() {
           </div>
 
           <p className="text-sm text-muted italic">Current turnaround time will be confirmed with your quote.</p>
+
+          {uploadsEnabled && <ReferencePhotos photos={photos} onChange={setPhotos} />}
 
           <button type="submit" disabled={status === 'submitting'} className="w-full bg-walnut hover:bg-oak text-cream py-4 rounded text-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
             {status === 'submitting' ? 'Submitting...' : 'Submit Basketball Court Request'}
