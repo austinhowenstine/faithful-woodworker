@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import { useState, useEffect, FormEvent } from 'react'
 import { order, config } from '@/content'
 import EditableText from '@/components/ui/EditableText'
 import { assetPath } from '@/utils/basePath'
@@ -32,6 +32,12 @@ const initialForm: FormData = {
 export default function OrderPage() {
   const [form, setForm] = useState<FormData>(initialForm)
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get('project') === 'court') {
+      setForm((prev) => ({ ...prev, projectType: 'Custom Basketball Court' }))
+    }
+  }, [])
 
   const isCourt = form.projectType === 'Custom Basketball Court'
   const [courtTeam, setCourtTeam] = useState('')
@@ -116,10 +122,10 @@ export default function OrderPage() {
       <div className="max-w-2xl mx-auto px-6">
         <div className="text-center mb-12">
           <EditableText file="order" path="heading" as="h1" className="font-display text-4xl md:text-5xl text-walnut mb-4">
-            {order.heading}
+            {isCourt ? 'Request a Custom Basketball Court' : order.heading}
           </EditableText>
           <EditableText file="order" path="subheading" as="p" className="text-muted text-lg" multiline>
-            {order.subheading}
+            {isCourt ? 'Choose your court design and size below, and I’ll get back to you with a custom quote.' : order.subheading}
           </EditableText>
         </div>
 
