@@ -34,6 +34,10 @@ function generateId() {
 function doGet(e) {
   const action = e.parameter.action;
 
+  if (action === 'uploadCapability') {
+    return jsonResponse({ photoUploads: true });
+  }
+
   if (action === 'admin') {
     return handleAdmin(e);
   }
@@ -66,6 +70,16 @@ function handleSubmitOrder(data) {
   const sheet = getSheet(ORDERS_SHEET);
   const id = generateId();
   const timestamp = new Date().toISOString();
+
+  let photoLinks;
+  try {
+    photoLinks = saveReferencePhotos(data.photos, id);
+  } catch (err) {
+    return jsonResponse({ success: false, error: 'Unable to save reference photos.' });
+  }
+  if (photoLinks.length) {
+    data.description = (data.description || '') + '\n\nReference photos (private Drive links):\n' + photoLinks.join('\n');
+  }
 
   const row = [
     id,
@@ -167,6 +181,41 @@ Thanks for supporting Faithful Woodworker!
     body: body,
     replyTo: 'austinhowenstine@gmail.com',
   });
+}
+
+// --- Private reference photo storage ---
+function saveReferencePhotos(photos, orderId) {
+  if (photos == null) return [];
+  if (!Array.isArray(photos) || photos.length > 5) throw new Error('Invalid photos');
+  if (!photos.length) return [];
+  const allowed = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/heic': 'heic', 'image/heif': 'heif' };
+  let total = 0;
+  const validated = photos.map((photo, i) => {
+    if (!photo || !Object.prototype.hasOwnProperty.call(allowed, photo.type) || typeof photo.base64 !== 'string' || photo.base64.length > 7000000) throw new Error('Invalid image');
+    const bytes = Utilities.base64Decode(photo.base64);
+    total += bytes.length;
+    if (!bytes.length || bytes.length > 5 * 1024 * 1024 || total > 10 * 1024 * 1024) throw new Error('Image size limit');
+    return Utilities.newBlob(bytes, photo.type, 'reference-' + (i + 1) + '.' + allowed[photo.type]);
+  });
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  let root;
+  try {
+    const props = PropertiesService.getScriptProperties();
+    const folderId = props.getProperty('REFERENCE_PHOTOS_FOLDER_ID');
+    if (folderId) root = DriveApp.getFolderById(folderId);
+    else {
+      root = DriveApp.createFolder('Faithful Woodworker - Order Reference Photos');
+      props.setProperty('REFERENCE_PHOTOS_FOLDER_ID', root.getId());
+    }
+  } finally { lock.releaseLock(); }
+  const folder = root.createFolder(orderId);
+  try {
+    return validated.map(blob => folder.createFile(blob).getUrl());
+  } catch (err) {
+    folder.setTrashed(true);
+    throw err;
+  }
 }
 
 // --- Admin ---
