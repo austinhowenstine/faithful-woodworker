@@ -11,7 +11,6 @@
       "Wedding Portrait",
       "3D Painted Sign",
       "Wood Mosaic Sign",
-      "Custom Basketball Court",
       "Other"
     ],
     "startingPrices": {
@@ -21,8 +20,7 @@
       "Family Portrait": "$250",
       "Wedding Portrait": "$250",
       "3D Painted Sign": "$200",
-      "Other": "$200",
-      "Custom Basketball Court": "$700"
+      "Other": "$200"
     },
     "styles": [
       "Modern",
