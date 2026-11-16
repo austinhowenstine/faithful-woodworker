@@ -35,13 +35,13 @@ export default function HomePage() {
             <EditableText file="home" path="hero.headline" as="h1" className="font-display text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight">{home.hero.headline}</EditableText>
             <EditableText file="home" path="hero.subheadline" as="p" className="text-lg md:text-xl text-cream/80 mb-10 max-w-2xl mx-auto lg:mx-0">{home.hero.subheadline}</EditableText>
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
-              <Link href="/order/?project=court" className="bg-cream hover:bg-white text-walnut px-8 py-3 rounded text-lg font-medium transition-colors">Request a Custom Basketball Court</Link>
+              <Link href="/basketball-courts/" className="bg-cream hover:bg-white text-walnut px-8 py-3 rounded text-lg font-medium transition-colors">Request a Custom Basketball Court</Link>
               <Link href="/order/" className="bg-accent hover:bg-accent-light text-white px-8 py-3 rounded text-lg font-medium transition-colors"><EditableText file="home" path="hero.ctaPrimary">{home.hero.ctaPrimary}</EditableText></Link>
               <Link href="/portfolio/" className="border-2 border-cream/50 hover:border-cream text-cream px-8 py-3 rounded text-lg transition-colors"><EditableText file="home" path="hero.ctaSecondary">{home.hero.ctaSecondary}</EditableText></Link>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 lg:gap-5">
-            <Link href="/order/?project=court" className="col-span-2 block overflow-hidden rounded-xl shadow-2xl ring-1 ring-cream/10">
+            <Link href="/basketball-courts/" className="col-span-2 block overflow-hidden rounded-xl shadow-2xl ring-1 ring-cream/10">
               <img src={assetPath('/photos/kentucky-court.jpg')} alt="Custom Kentucky basketball court" className="block w-full h-auto" fetchPriority="high" />
               <p className="bg-black/30 px-4 py-3 text-center font-medium text-cream">Custom Basketball Courts</p>
             </Link>
@@ -57,7 +57,7 @@ export default function HomePage() {
       </section>
       <section id="basketball-courts" className="py-16 md:py-24 bg-warm-white">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <Link href="/order/?project=court" className="relative block overflow-hidden rounded-xl shadow-xl bg-border">
+          <Link href="/basketball-courts/" className="relative block overflow-hidden rounded-xl shadow-xl bg-border">
             <img src={assetPath('/photos/kentucky-court.jpg')} alt="Handcrafted Kentucky basketball court replica" className="block w-full h-auto" />
           </Link>
           <div className="text-center lg:text-left">
@@ -65,7 +65,7 @@ export default function HomePage() {
             <h2 className="font-display text-4xl md:text-5xl text-walnut mb-5">Custom Basketball Courts</h2>
             <p className="text-muted text-lg leading-relaxed mb-5">Bring your favorite court to life with a handcrafted hardwood replica, built to order. Choose your court design, size, and personal touches to create a one-of-a-kind piece for your home or office.</p>
             <p className="text-walnut font-medium mb-7">Available in 2–5 ft sizes · Starting at $700</p>
-            <Link href="/order/?project=court" className="inline-block bg-walnut hover:bg-oak text-cream px-8 py-4 rounded text-lg font-medium transition-colors">Request a Custom Basketball Court</Link>
+            <Link href="/basketball-courts/" className="inline-block bg-walnut hover:bg-oak text-cream px-8 py-4 rounded text-lg font-medium transition-colors">Request a Custom Basketball Court</Link>
           </div>
         </div>
       </section>
