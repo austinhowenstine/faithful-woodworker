@@ -1,8 +1,9 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import { useState, useEffect, FormEvent } from 'react'
 import { order, config } from '@/content'
 import EditableText from '@/components/ui/EditableText'
+import { assetPath } from '@/utils/basePath'
 
 interface FormData {
   name: string
@@ -32,6 +33,18 @@ export default function OrderPage() {
   const [form, setForm] = useState<FormData>(initialForm)
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get('project') === 'court') {
+      setForm((prev) => ({ ...prev, projectType: 'Custom Basketball Court' }))
+    }
+  }, [])
+
+  const isCourt = form.projectType === 'Custom Basketball Court'
+  const [courtTeam, setCourtTeam] = useState('')
+  const [courtSize, setCourtSize] = useState('')
+  const [courtUse, setCourtUse] = useState('Wall art')
+  const courtPrices: Record<string, string> = { '2 ft': '$700', '3 ft': '$1,200', '4 ft': '$1,750', '5 ft': '$2,500' }
+
   const update = (field: keyof FormData, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }))
 
@@ -60,6 +73,7 @@ export default function OrderPage() {
     try {
       const submission = {
         ...form,
+        ...(isCourt ? { dimensions: courtSize, budget: `Starting at ${courtPrices[courtSize]}`, style: courtUse, colorPreference: '', description: `Team / court: ${courtTeam}\nIntended use: ${courtUse}\n${form.description}` } : {}),
         timestamp: new Date().toISOString(),
         action: 'submitOrder',
       }
@@ -74,6 +88,9 @@ export default function OrderPage() {
       if (data.success) {
         setStatus('success')
         setForm(initialForm)
+        setCourtTeam('')
+        setCourtSize('')
+        setCourtUse('Wall art')
       } else {
         setStatus('error')
       }
@@ -105,10 +122,10 @@ export default function OrderPage() {
       <div className="max-w-2xl mx-auto px-6">
         <div className="text-center mb-12">
           <EditableText file="order" path="heading" as="h1" className="font-display text-4xl md:text-5xl text-walnut mb-4">
-            {order.heading}
+            {isCourt ? 'Request a Custom Basketball Court' : order.heading}
           </EditableText>
           <EditableText file="order" path="subheading" as="p" className="text-muted text-lg" multiline>
-            {order.subheading}
+            {isCourt ? 'Choose your court design and size below, and I’ll get back to you with a custom quote.' : order.subheading}
           </EditableText>
         </div>
 
@@ -145,7 +162,7 @@ export default function OrderPage() {
                 ))}
               </select>
             </div>
-            <div>
+            {!isCourt && <div>
               <label className="block text-sm font-medium text-charcoal mb-1">Style Preference</label>
               <select value={form.style} onChange={(e) => update('style', e.target.value)} className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30">
                 <option value="">Select a style...</option>
@@ -153,9 +170,34 @@ export default function OrderPage() {
                   <option key={style} value={style}>{style}</option>
                 ))}
               </select>
-            </div>
+            </div>}
           </div>
 
+          {isCourt ? (
+            <section className="space-y-5 border border-border rounded p-5">
+              <h2 className="font-display text-2xl text-walnut">Custom Basketball Courts</h2>
+              <img src={assetPath('/photos/IMG_7131%204.jpeg.jpg')} alt="Handcrafted Kentucky basketball court replica" className="w-full h-auto rounded" />
+              <div>
+                <label htmlFor="court-team" className="block text-sm font-medium text-charcoal mb-1">Team / Court Design *</label>
+                <input id="court-team" required value={courtTeam} onChange={(e) => setCourtTeam(e.target.value)} placeholder="e.g., Kentucky – Rupp Arena" className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30" />
+              </div>
+              <div>
+                <label htmlFor="court-size" className="block text-sm font-medium text-charcoal mb-1">Court Size *</label>
+                <select id="court-size" required value={courtSize} onChange={(e) => setCourtSize(e.target.value)} className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30">
+                  <option value="">Select a size...</option>
+                  {Object.entries(courtPrices).map(([size, price]) => <option key={size} value={size}>{size} wide — Starting at {price}</option>)}
+                </select>
+                {courtSize && <p className="mt-2 font-medium text-walnut">Starting price: {courtPrices[courtSize]}</p>}
+                <p className="mt-2 text-sm text-muted">Prices are starting prices and may vary based on design complexity and customization. Desks and tabletops may cost extra.</p>
+              </div>
+              <div>
+                <label htmlFor="court-use" className="block text-sm font-medium text-charcoal mb-1">Intended Use</label>
+                <select id="court-use" value={courtUse} onChange={(e) => setCourtUse(e.target.value)} className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30">
+                  {['Wall art', 'Desk', 'Tabletop'].map((use) => <option key={use}>{use}</option>)}
+                </select>
+              </div>
+            </section>
+          ) : <>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-charcoal mb-1">Dimensions / Size</label>
@@ -177,16 +219,17 @@ export default function OrderPage() {
             <input type="text" value={form.colorPreference} onChange={(e) => update('colorPreference', e.target.value)} placeholder="e.g., Dark walnut with white lettering" className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30" />
           </div>
 
+          </>}
           <div>
             <label className="block text-sm font-medium text-charcoal mb-1">
-              Describe Your Vision <span className="text-red-500">*</span>
+              {isCourt ? 'Additional Customization' : 'Describe Your Vision'} {!isCourt && <span className="text-red-500">*</span>}
             </label>
-            <textarea required rows={5} value={form.description} onChange={(e) => update('description', e.target.value)} placeholder="Tell me about your idea — what it's for, any specific details, reference images you have in mind..." className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30 resize-y" />
+            <textarea required={!isCourt} rows={5} value={form.description} onChange={(e) => update('description', e.target.value)} placeholder="Tell me about your idea — what it's for, any specific details, reference images you have in mind..." className="w-full px-4 py-3 border border-border rounded bg-warm-white focus:outline-none focus:ring-2 focus:ring-walnut/30 resize-y" />
           </div>
 
-          <EditableText file="order" path="turnaroundNote" as="p" className="text-sm text-muted italic">
+          {isCourt ? <p className="text-sm text-muted italic">Current turnaround time will be confirmed with your quote.</p> : <EditableText file="order" path="turnaroundNote" as="p" className="text-sm text-muted italic">
             {order.turnaroundNote}
-          </EditableText>
+          </EditableText>}
 
           <button type="submit" disabled={status === 'submitting'} className="w-full bg-walnut hover:bg-oak text-cream py-4 rounded text-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
             {status === 'submitting' ? 'Submitting...' : 'Request My Custom Piece'}
