@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import { useState, useEffect, FormEvent } from 'react'
 import { order, config } from '@/content'
+import ReferencePhotos, { type ReferencePhoto } from '@/components/ui/ReferencePhotos'
 import EditableText from '@/components/ui/EditableText'
 
 interface FormData {
@@ -31,6 +32,14 @@ const initialForm: FormData = {
 }
 
 export default function OrderPage() {
+  const [photos, setPhotos] = useState<ReferencePhoto[]>([])
+  const [uploadsEnabled, setUploadsEnabled] = useState(false)
+  useEffect(() => {
+    if (!config.appsScriptUrl) return
+    const url = new URL(config.appsScriptUrl)
+    url.searchParams.set('action', 'uploadCapability')
+    fetch(url.toString()).then(r => r.json()).then(data => setUploadsEnabled(data.photoUploads === true)).catch(() => {})
+  }, [])
   const [form, setForm] = useState<FormData>(initialForm)
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
@@ -63,6 +72,7 @@ export default function OrderPage() {
       const submission = {
         ...form,
         description: `Preferred contact: ${form.contactPreference}\n${form.description}`,
+        ...(uploadsEnabled && photos.length ? { photos } : {}),
         timestamp: new Date().toISOString(),
         action: 'submitOrder',
       }
@@ -77,6 +87,7 @@ export default function OrderPage() {
       if (data.success) {
         setStatus('success')
         setForm(initialForm)
+        setPhotos([])
       } else {
         setStatus('error')
       }
@@ -203,6 +214,8 @@ export default function OrderPage() {
           <EditableText file="order" path="turnaroundNote" as="p" className="text-sm text-muted italic">
             {order.turnaroundNote}
           </EditableText>
+
+          {uploadsEnabled && <ReferencePhotos photos={photos} onChange={setPhotos} />}
 
           <button type="submit" disabled={status === 'submitting'} className="w-full bg-walnut hover:bg-oak text-cream py-4 rounded text-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
             {status === 'submitting' ? 'Submitting...' : 'Request My Custom Piece'}
